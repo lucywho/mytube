@@ -23,7 +23,7 @@ export default function Video({ video }) {
                         .padStart(2, "0")}
                     :{(video.length % 60).toString().padStart(2, "0")}
                 </p>
-                <div className="flex border border-purple-900 rounded-xl bg-purple-900">
+                <div className="flex border border-purple-900 text-grey-100 rounded-xl bg-purple-900">
                     {video.author.image && (
                         <img
                             className="w-10 h-10 mt-2 mx-2 rounded-full"
@@ -32,7 +32,7 @@ export default function Video({ video }) {
                     )}
                     <div>
                         <Link href={`/video/${video.id}`}>
-                            <p className="text-lg font-bold text-gray-100 hover:text-pink-200 hover:underline cursor-pointer">
+                            <p className="text-lg font-bold text-gray-100 hover:text-pink-200 hover:underline  active:text-purple-900 cursor-pointer">
                                 {video.title}
                             </p>
                         </Link>
@@ -42,7 +42,7 @@ export default function Video({ video }) {
                                     <Link
                                         href={`/channel/${video.author.username}`}
                                     >
-                                        <span className="mr-2 hover:underline hover:text-pink-200 cursor-pointer">
+                                        <span className="mr-2 hover:underline hover:text-pink-200  active:text-purple-900 cursor-pointer">
                                             {video.author.name}
                                         </span>
                                     </Link>

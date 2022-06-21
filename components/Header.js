@@ -12,7 +12,13 @@ export default function Header() {
         <header className="min-h-14 flex px-5 pt-2 pb-5 ">
             <div className="text-4xl w-full text-center">
                 <p>
-                    🙈 my<span className="font-extrabold">Tube</span>
+                    🙈 <span className="text-teal-400">my</span>
+                    <span className="font-extrabold">
+                        <span className="text-purple-800">T</span>
+                        <span className="text-purple-600">u</span>
+                        <span className="text-purple-400">b</span>
+                        <span className="text-purple-200">e</span>
+                    </span>
                 </p>
             </div>
 
