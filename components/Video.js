@@ -17,7 +17,7 @@ export default function Video({ video }) {
                         />
                     </Link>
                 )}
-                <p className="text-grey-100 float-right relative -mt-11 mr-1 bg-gray-900 rounded-lg p-1">
+                <p className="text-grey-100 float-right relative -mt-11 mr-1 bg-gray-900 bg-opacity-60 rounded-lg p-1">
                     {Math.floor(video.length / 60)
                         .toString()
                         .padStart(2, "0")}

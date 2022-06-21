@@ -6,7 +6,6 @@ const nextConfig = {
             "localhost",
             "bootcamp-lucy-22.s3.eu-central-1.amazonaws.com",
             "bootcamp-lucy-22.s3.amazonaws.com",
-            "placeimg.com",
         ],
     },
 }

@@ -27,7 +27,8 @@ export default async function handler(req, res) {
 
     const videoURL =
         "https://bootcamp-lucy-22.s3.eu-central-1.amazonaws.com/SampleVideo_360x240_2mb.mp4"
-    const thumbnailURL = "http://placeimg.com/800/450/animals.jpeg"
+    const thumbnailURL =
+        "https://bootcamp-lucy-22.s3.eu-central-1.amazonaws.com/placeimg_640_480_animals.jpg"
 
     const users = await prisma.user.findMany()
 

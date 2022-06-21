@@ -16,7 +16,7 @@ export default function Home({ videos }) {
             <div>
                 <header className="min-h-14 flex px-5 pt-2 pb-5 ">
                     <div className="text-3xl ">
-                        <p>myTube</p>
+                        <p>🙈 myTube</p>
                     </div>
 
                     <div className="grow"></div>
