@@ -1,4 +1,7 @@
+import { useRouter } from "next/router"
+
 export default function Utils() {
+    const router = useRouter()
     return (
         <div className="mt-10 ml-20">
             <h2 className="mb-10 text-xl">Utils</h2>
@@ -37,6 +40,17 @@ export default function Utils() {
                     }}
                 >
                     Clean database
+                </button>
+            </div>
+            <div className="flex-1 mb-5">
+                <button
+                    className="button"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        router.push("/")
+                    }}
+                >
+                    Home
                 </button>
             </div>
         </div>

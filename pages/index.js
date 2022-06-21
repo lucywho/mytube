@@ -14,14 +14,6 @@ export default function Home({ videos }) {
                 <link rel="icon" href="/monkeyfav.ico" />
             </Head>
             <div>
-                <header className="min-h-14 flex px-5 pt-2 pb-5 ">
-                    <div className="text-3xl ">
-                        <p>🙈 myTube</p>
-                    </div>
-
-                    <div className="grow"></div>
-                </header>
-
                 {videos.length === 0 && (
                     <p className="flex justify-center mt-20">
                         No videos found!
