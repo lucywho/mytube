@@ -1,10 +1,21 @@
 import Head from "next/head"
+import { useState } from "react"
+import { amount } from "lib/config"
 import prisma from "lib/prisma"
 import { getVideos } from "lib/data"
 import Videos from "components/Videos"
+import LoadMore from "components/LoadMore"
 
-export default function Home({ videos }) {
-    if (!videos) return <p className="text-pink-200">Sorry no videos</p>
+export default function Home({ initialVideos }) {
+    const [videos, setVideos] = useState(initialVideos)
+    const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
+
+    if (!videos)
+        return (
+            <p className="text-pink-200 text-2xl font-bold p-5">
+                Sorry, no videos here!
+            </p>
+        )
 
     return (
         <>
@@ -20,6 +31,13 @@ export default function Home({ videos }) {
                     </p>
                 )}
                 <Videos videos={videos} />
+                {!reachedEnd && (
+                    <LoadMore
+                        videos={videos}
+                        setVideos={setVideos}
+                        setReachedEnd={setReachedEnd}
+                    />
+                )}
             </div>
         </>
     )
@@ -31,7 +49,7 @@ export async function getServerSideProps() {
 
     return {
         props: {
-            videos,
+            initialVideos: videos,
         },
     }
 }

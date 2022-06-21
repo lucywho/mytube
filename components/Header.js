@@ -9,8 +9,8 @@ export default function Header() {
     }
 
     return (
-        <header className="min-h-14 flex px-5 pt-2 pb-5 ">
-            <div className="text-4xl w-full text-center">
+        <header className="min-h-14 flex px-5 pt-2 pb-10 border-b-2 border-teal-400">
+            <div className="text-4xl w-full">
                 <p>
                     🙈 <span className="text-teal-400">my</span>
                     <span className="font-extrabold">
