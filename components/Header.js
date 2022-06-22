@@ -1,7 +1,12 @@
 import { useRouter } from "next/router"
+import { useSession } from "next-auth/react"
+import Link from "next/link"
 
 export default function Header() {
     const router = useRouter()
+    const { data: session, status } = useSession()
+    const loading = status === "loading"
+
     let nothome = true
 
     if (router.pathname === "/") {
@@ -22,18 +27,25 @@ export default function Header() {
                 </p>
             </div>
 
+            <div className="grow"></div>
+            <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
+                {session ? (
+                    <button className="button">sign out</button>
+                ) : (
+                    <button className="button">sign in</button>
+                )}
+            </Link>
+
             {nothome && (
-                <div className="grow">
-                    <button
-                        className="button"
-                        onClick={(e) => {
-                            e.preventDefault()
-                            router.push("/")
-                        }}
-                    >
-                        home
-                    </button>
-                </div>
+                <button
+                    className="button"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        router.push("/")
+                    }}
+                >
+                    home
+                </button>
             )}
         </header>
     )

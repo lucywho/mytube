@@ -17,9 +17,22 @@ a {
     box-sizing: border-box;
 }
 
+input {
+    background-color: #fce4ec;
+    color: #4a148c !important;
+    border: 2px #f48fb1 solid;
+    border-radius: 10px;
+    margin: 2px 0;
+}
+
+input:focus {
+    outline: none;
+    border: 2px #26a69a solid;
+}
+
 .button {
     border: 1px solid #4a148c;
-    padding: 5px 10px;
+    padding: 5px 20px;
     margin: 5px 8px;
     font-weight: bold;
     border-radius: 30px;

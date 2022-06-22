@@ -1,7 +1,23 @@
 import { useRouter } from "next/router"
+import { useSession } from "next-auth/react"
 
 export default function Utils() {
     const router = useRouter()
+    const { data: session, status } = useSession()
+
+    if (!session || !session.user) {
+        router.push("/")
+        return null
+    }
+
+    if (session.user.name !== "Lucy") {
+        return (
+            <p className="text-pink-200 text-2xl font-bold p-5">
+                access denied
+            </p>
+        )
+    }
+
     return (
         <div className="mt-10 ml-20">
             <h2 className="mb-10 text-xl">Utils</h2>

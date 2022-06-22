@@ -9,7 +9,7 @@ export default function Video({ video }) {
                 {video.thumbnail && (
                     <Link href={`/video/${video.id}`}>
                         <Image
-                            className="mb-2 cursor-pointer"
+                            className="mb-2 rounded-lg cursor-pointer"
                             src={video.thumbnail}
                             alt="video thumbnail"
                             width="800"
@@ -23,7 +23,7 @@ export default function Video({ video }) {
                         .padStart(2, "0")}
                     :{(video.length % 60).toString().padStart(2, "0")}
                 </p>
-                <div className="flex border border-purple-900 text-grey-100 rounded-xl bg-purple-900">
+                <div className="flex border border-purple-900 text-grey-100 rounded-xl bg-purple-900 mb-3">
                     {video.author.image && (
                         <img
                             className="w-10 h-10 mt-2 mx-2 rounded-full"
@@ -38,7 +38,7 @@ export default function Video({ video }) {
                         </Link>
                         <div className="">
                             <div className="">
-                                <div className="text-pink-2000">
+                                <div className="text-pink-200">
                                     <Link
                                         href={`/channel/${video.author.username}`}
                                     >
