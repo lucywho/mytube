@@ -15,7 +15,9 @@ export default function Home({ initialVideos }) {
     const [videos, setVideos] = useState(initialVideos)
     const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
 
-    console.log("session in index", session.user)
+    if (session) {
+        console.log("session in index", session.user)
+    }
 
     if (loading) {
         return (

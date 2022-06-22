@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useSession, getSession } from "next-auth/react"
 
 import { amount } from "lib/config"
 import { getUser, getVideos } from "lib/data"
@@ -8,15 +9,20 @@ import Videos from "components/Videos"
 import LoadMore from "components/LoadMore"
 
 export default function Channel({ user, initialVideos }) {
+    const { data: session, status } = useSession()
+    const loading = status === "loading"
     const [videos, setVideos] = useState(initialVideos)
     const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
 
-    console.log("session in channel", session.user)
+    if (loading) {
+        return null
+    }
 
     if (!user)
         return (
             <p className="text-center p-5">Sorry. This user does not exist.</p>
         )
+
     if (initialVideos.length === 0) {
         return (
             <p className="text-xl md:text-2xl font-bold text-pink-200 p-5">
