@@ -84,8 +84,8 @@ export default function Setup() {
                         {!imageURL && <p className="mb-2">upload an avatar</p>}
                         <img src={imageURL} className="w-20 h-20" />
                         <input
-                            type="file"
                             name="image"
+                            type="file"
                             accept="image/*"
                             className="hidden"
                             required

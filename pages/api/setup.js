@@ -17,6 +17,7 @@ handler.post(async (req, res) => {
             id: session.user.id,
         },
     })
+
     if (!user) return res.statusCode(401).json({ message: "user not found" })
 
     //saves name and username
@@ -36,15 +37,19 @@ handler.post(async (req, res) => {
             file: req.files.image[0],
             user_id: user.id,
         })
-    }
 
-    //saves image link to db
-    await prisma.user.update({
-        where: {
-            id: user.id,
-        },
-        data: { image: avatar_url },
-    })
+        console.log("avatar_url: ", avatar_url)
+
+        //saves image link to db
+        await prisma.user.update({
+            where: {
+                id: user.id,
+            },
+            data: {
+                image: avatar_url,
+            },
+        })
+    }
 
     res.end()
     return

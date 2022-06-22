@@ -11,16 +11,19 @@ export default function Channel({ user, initialVideos }) {
     const [videos, setVideos] = useState(initialVideos)
     const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
 
+    console.log("session in channel", session.user)
+
     if (!user)
         return (
             <p className="text-center p-5">Sorry. This user does not exist.</p>
         )
-    if (!videos)
+    if (initialVideos.length === 0) {
         return (
-            <p className="text-center p-5">
-                Sorry. This user has not shared any videos.
+            <p className="text-xl md:text-2xl font-bold text-pink-200 p-5">
+                Sorry, {user.name} hasn&apos;t shared any videos yet.
             </p>
         )
+    }
     return (
         <>
             <div className="flex flex-col w-full contents-center">
@@ -37,6 +40,7 @@ export default function Channel({ user, initialVideos }) {
                         </p>
                     </div>
                 </div>
+
                 <div className="w-full">
                     <Videos videos={videos} />
                     {!reachedEnd && (

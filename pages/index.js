@@ -15,6 +15,8 @@ export default function Home({ initialVideos }) {
     const [videos, setVideos] = useState(initialVideos)
     const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
 
+    console.log("session in index", session.user)
+
     if (loading) {
         return (
             <p className="text-pink-200 text-2xl font-bold p-5">

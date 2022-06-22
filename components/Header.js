@@ -28,13 +28,24 @@ export default function Header() {
             </div>
 
             <div className="grow"></div>
-            <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
-                {session ? (
-                    <button className="button">sign out</button>
-                ) : (
-                    <button className="button">sign in</button>
-                )}
-            </Link>
+            {session && (
+                <div className="w-2/3 flex flex-row justify-end pr-6 content-center cursor-pointer">
+                    <Link href={`/channel/${session.user.username}`}>
+                        <div className="flex flex-row">
+                            <span className="flex flex-col justify-center  pr-6 ">
+                                <img
+                                    src={session.user.image}
+                                    className="h-10 w-10 rounded-full "
+                                />
+                            </span>
+
+                            <p className=" text-teal-400 font-bold text-2xl flex flex-col justify-center">
+                                {session.user.name}
+                            </p>
+                        </div>
+                    </Link>
+                </div>
+            )}
 
             {nothome && (
                 <button
@@ -47,6 +58,13 @@ export default function Header() {
                     home
                 </button>
             )}
+            <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
+                {session ? (
+                    <button className="button">sign out</button>
+                ) : (
+                    <button className="button">sign in</button>
+                )}
+            </Link>
         </header>
     )
 }
