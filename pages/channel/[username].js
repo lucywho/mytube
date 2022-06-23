@@ -15,7 +15,11 @@ export default function Channel({ user, initialVideos }) {
     const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
 
     if (loading) {
-        return null
+        return (
+            <p className="text-pink-200 text-2xl font-bold p-5">
+                . . . loading
+            </p>
+        )
     }
 
     if (!user)
