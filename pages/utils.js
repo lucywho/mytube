@@ -6,8 +6,11 @@ export default function Utils() {
     const { data: session, status } = useSession()
 
     if (!session || !session.user) {
-        router.push("/")
-        return null
+        return (
+            <p className="text-pink-200 text-2xl font-bold p-5">
+                you are not signed in
+            </p>
+        )
     }
 
     if (session.user.name !== "Lucy") {

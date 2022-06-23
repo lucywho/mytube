@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
 
-export default function Header() {
+export default function Header({ subscriptions }) {
     const router = useRouter()
     const { data: session, status } = useSession()
     const loading = status === "loading"
@@ -27,13 +27,11 @@ export default function Header() {
                     </span>
                 </p>
             </div>
-
-            <div className="grow"></div>
             {session && (
-                <div className="w-2/3 flex flex-row justify-end pr-6 content-center cursor-pointer">
+                <div className="w-full flex flex-row justify-end pr-6 content-center cursor-pointer">
                     <Link href={`/channel/${session.user.username}`}>
                         <div className="flex flex-row">
-                            <span className="flex flex-col justify-center  pr-6 ">
+                            <span className="flex flex-col justify-center pr-3 ">
                                 <img
                                     src={session.user.image}
                                     className="h-10 w-10 rounded-full "
@@ -48,6 +46,15 @@ export default function Header() {
                 </div>
             )}
 
+            <div className="grow  ml-10 -mt-1"></div>
+            {session && router.pathname !== "/subscriptions" && (
+                <Link href={`/subscriptions`}>
+                    <button className="button">
+                        <p className="">subscriptions</p>
+                    </button>
+                </Link>
+            )}
+
             {nothome && (
                 <button
                     className="button"
@@ -60,9 +67,11 @@ export default function Header() {
                 </button>
             )}
 
-            <Link href={"/setup"}>
-                <button className="button">update</button>
-            </Link>
+            {session && (
+                <Link href={"/setup"}>
+                    <button className="button">update</button>
+                </Link>
+            )}
 
             <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
                 {session ? (
