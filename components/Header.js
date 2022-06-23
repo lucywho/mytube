@@ -6,6 +6,7 @@ export default function Header() {
     const router = useRouter()
     const { data: session, status } = useSession()
     const loading = status === "loading"
+    if (loading) return null
 
     let nothome = true
 
@@ -58,6 +59,11 @@ export default function Header() {
                     home
                 </button>
             )}
+
+            <Link href={"/setup"}>
+                <button className="button">update</button>
+            </Link>
+
             <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>
                 {session ? (
                     <button className="button">sign out</button>

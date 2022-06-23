@@ -38,8 +38,6 @@ handler.post(async (req, res) => {
             user_id: user.id,
         })
 
-        console.log("avatar_url: ", avatar_url)
-
         //saves image link to db
         await prisma.user.update({
             where: {

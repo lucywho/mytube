@@ -13,6 +13,14 @@ export default function Setup() {
     const [image, setImage] = useState(null)
     const [imageURL, setImageURL] = useState(null)
 
+    if (loading) {
+        return (
+            <p className="text-pink-200 text-2xl font-bold p-5">
+                . . . loading
+            </p>
+        )
+    }
+
     if (!session || !session.user) {
         return (
             <p className="text-pink-200 text-2xl font-bold p-5">
@@ -27,20 +35,21 @@ export default function Setup() {
         )
     }
 
-    if (loading) {
-        return (
-            <p className="text-pink-200 text-2xl font-bold p-5">
-                . . . loading
-            </p>
-        )
-    }
-
-    if (!loading && session.user.name) {
-        router.push("/")
-    }
+    // if (!loading && session.user.name) {
+    //     router.push("/")
+    // }
 
     return (
         <>
+            {session.user.name ? (
+                <p className="text-pink-200 text-2xl font-bold p-5">
+                    Update your details
+                </p>
+            ) : (
+                <p className="text-pink-200 text-2xl font-bold p-5">
+                    please enter your details
+                </p>
+            )}
             <form
                 className="mt-10 ml-20"
                 onSubmit={async (e) => {
