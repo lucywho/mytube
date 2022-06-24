@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 
@@ -14,6 +15,21 @@ export default function SingleVideo({ video, videos }) {
         return (
             <p className="text-center p-5">Sorry. This video does not exist.</p>
         )
+
+    useEffect(() => {
+        const incrementViews = async () => {
+            await fetch("/api/view", {
+                body: JSON.stringify({
+                    video: video.id,
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                method: "POST",
+            })
+        }
+        incrementViews()
+    }, [])
 
     return (
         <>
@@ -37,7 +53,7 @@ export default function SingleVideo({ video, videos }) {
                                 </p>
 
                                 <div className="text-pink-200">
-                                    {video.views} views ·{" "}
+                                    {video.views + 1} views ·{" "}
                                     {timeago.format(new Date(video.createdAt))}
                                 </div>
                             </div>
