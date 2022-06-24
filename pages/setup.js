@@ -35,10 +35,6 @@ export default function Setup() {
         )
     }
 
-    // if (!loading && session.user.name) {
-    //     router.push("/")
-    // }
-
     return (
         <>
             {session.user.name ? (
@@ -46,9 +42,7 @@ export default function Setup() {
                     Update your details
                 </p>
             ) : (
-                <p className="text-pink-200 text-2xl font-bold p-5">
-                    please enter your details
-                </p>
+                <></>
             )}
             <form
                 className="mt-10 ml-20"

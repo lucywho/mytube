@@ -6,7 +6,23 @@ export default function Header({ subscriptions }) {
     const router = useRouter()
     const { data: session, status } = useSession()
     const loading = status === "loading"
-    if (loading) return null
+    if (loading) {
+        return (
+            <header className="min-h-14 flex px-5 pt-2 pb-10 border-b-2 border-teal-400">
+                <div className="text-4xl w-full">
+                    <p>
+                        🙈 <span className="text-teal-400">my</span>
+                        <span className="font-extrabold">
+                            <span className="text-purple-800">T</span>
+                            <span className="text-purple-600">u</span>
+                            <span className="text-purple-400">b</span>
+                            <span className="text-purple-200">e</span>
+                        </span>
+                    </p>
+                </div>
+            </header>
+        )
+    }
 
     let nothome = true
 

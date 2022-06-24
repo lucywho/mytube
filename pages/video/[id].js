@@ -33,11 +33,11 @@ export default function SingleVideo({ video, videos }) {
 
     return (
         <>
-            <div className="flex flex-row min-w-full ">
-                <div className="flex flex-col  md:w-3/4">
-                    <div className="w-full">
+            <div className="flex flex-row min-w-full">
+                <div className="flex flex-col md:w-3/4 mt-5">
+                    <div className="w-full ">
                         <ReactPlayer
-                            className="react-player "
+                            className="react-player"
                             url={video.url}
                             width="100%"
                             controls={true}

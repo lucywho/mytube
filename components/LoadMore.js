@@ -23,7 +23,7 @@ export default function LoadMore({
                     }
                     const res = await fetch(url)
                     const data = await res.json()
-                    if (data.length < amount) {
+                    if (data.length <= amount) {
                         setReachedEnd(true)
                     }
                     setVideos([...videos, ...data])
