@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useSession } from "next-auth/react"
+import { useSession, getSession } from "next-auth/react"
 
 import { amount } from "lib/config"
 import { getUser, getVideos, getSubscribersCount, isSubscribed } from "lib/data"
@@ -90,6 +90,8 @@ export default function Channel({
 }
 
 export async function getServerSideProps(context) {
+    const session = await getSession(context)
+
     let user = await getUser(context.params.username, prisma)
     user = JSON.parse(JSON.stringify(user))
 

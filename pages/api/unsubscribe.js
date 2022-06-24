@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
     const session = await getSession({ req })
 
-    if (!session) return res.status(401).json({ message: "Not logged in" })
+    if (!session) return res.status(401).json({ message: "not logged in" })
 
     const user = await prisma.user.findUnique({
         where: {
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
         },
     })
 
-    if (!user) return res.status(401).json({ message: "User not found" })
+    if (!user) return res.status(401).json({ message: "user not found" })
 
     const userToSubscribeTo = await prisma.user.findUnique({
         where: {
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     })
 
     if (!userToSubscribeTo) {
-        return res.status(401).json({ message: "User not found" })
+        return res.status(401).json({ message: "subscribed user not found" })
     }
 
     await prisma.user.update({
