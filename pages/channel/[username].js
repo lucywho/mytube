@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSession, getSession } from "next-auth/react"
+import Link from "next/link"
 
 import { amount } from "lib/config"
 import { getUser, getVideos, getSubscribersCount, isSubscribed } from "lib/data"
@@ -33,13 +34,14 @@ export default function Channel({
             <p className="text-center p-5">Sorry. This user does not exist.</p>
         )
 
-    if (initialVideos.length === 0) {
+    if (initialVideos.length === 0 && user.id !== session.user.id) {
         return (
             <p className="text-xl md:text-2xl font-bold text-pink-200 p-5">
                 Sorry, {user.name} hasn&apos;t shared any videos yet.
             </p>
         )
     }
+
     return (
         <>
             <div className="flex flex-col w-full contents-center">
@@ -52,10 +54,23 @@ export default function Channel({
                             />
                         )}
 
+                        {/* {session && (
+                <Link href={"/setup"}>
+                    <button className="button">update</button>
+                </Link>
+            )} */}
                         <div className="flex flex-col justify-center  pl-2 md:pl-5">
-                            <p className="text-2xl md:text-4xl font-bold text-teal-400">
-                                {user.name}&apos;s videos
-                            </p>
+                            {session && user.id === session.user.id ? (
+                                <>
+                                    <p className="text-2xl md:text-4xl font-bold text-teal-400">
+                                        Welcome to your page, {user.name}
+                                    </p>
+                                </>
+                            ) : (
+                                <p className="text-2xl md:text-4xl font-bold text-teal-400">
+                                    {user.name}&apos;s videos
+                                </p>
+                            )}
                             <div className="text-pink-200 mt-2">
                                 {subscribers} subscribers
                             </div>
@@ -63,7 +78,18 @@ export default function Channel({
                     </div>
                     <div className="flex flex-col justify-center">
                         {session && user.id === session.user.id ? (
-                            <></>
+                            <>
+                                <Link href={"/setup"}>
+                                    <button className="button bg-teal-400 text-purple-900">
+                                        update your profile
+                                    </button>
+                                </Link>
+                                <Link href={`/upload`}>
+                                    <a className="button bg-teal-400 text-purple-900">
+                                        upload new video
+                                    </a>
+                                </Link>
+                            </>
                         ) : (
                             <SubscribedButton
                                 user={user}
@@ -72,7 +98,13 @@ export default function Channel({
                         )}
                     </div>
                 </div>
-
+                {initialVideos.length === 0 &&
+                    session &&
+                    user.id === session.user.id && (
+                        <p className="text-pink-200 mt-5 ml-5 font-bold text-xl">
+                            You haven&apos;t uploaded any videos yet
+                        </p>
+                    )}
                 <div className="w-full">
                     <Videos videos={videos} />
                     {!reachedEnd && (

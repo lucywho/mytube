@@ -38,7 +38,7 @@ export default function Header({ subscriptions }) {
                                 />
                             </span>
 
-                            <p className=" text-teal-400 font-bold text-2xl flex flex-col justify-center">
+                            <p className=" text-teal-400 hover:text-pink-200 font-bold text-2xl flex flex-col justify-center">
                                 {session.user.name}
                             </p>
                         </div>
@@ -65,12 +65,6 @@ export default function Header({ subscriptions }) {
                 >
                     home
                 </button>
-            )}
-
-            {session && (
-                <Link href={"/setup"}>
-                    <button className="button">update</button>
-                </Link>
             )}
 
             <Link href={session ? "/api/auth/signout" : "/api/auth/signin"}>

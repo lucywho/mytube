@@ -20,7 +20,7 @@ a {
 input {
     background-color: #fce4ec;
     color: #581c87 !important;
-    border: 2px #f48fb1 solid;
+    border: 2px #fbcfe8 solid;
     border-radius: 10px;
     margin: 2px 0;
 }
@@ -38,10 +38,11 @@ input:focus {
     border-radius: 30px;
     background: #581c87;
     color: #f5f5f5;
+    text-align: center;
 }
 
 .button:hover {
-    background: #f5f5f5;
+    background: #fbcfe8;
     color: #581c87;
 }
 
@@ -49,8 +50,8 @@ input:focus {
     background: #26a69a;
 }
 
-/* purple-900 #4a148c #581c87
-pink-200 - #f48fb1
+/* purple-900  #581c87
+pink-200 -  #fbcfe8
 teal-400 #26a69a
  grey-100 - #f5f5f5
 grey-900 - #212121 */
