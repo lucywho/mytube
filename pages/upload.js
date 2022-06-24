@@ -69,7 +69,7 @@ export default function Upload() {
                     required
                 />
                 <label>
-                    <div className="my-5 border border-pink-200 p-2 w-fit rounded-lg text-pink-200 hover:text-teal-400 hover:border-teal-400 text-2xl w-1/2">
+                    <div className="my-5 border border-pink-200 p-2 rounded-lg text-pink-200 hover:text-teal-400 hover:border-teal-400 text-2xl w-1/2">
                         upload a video thumbnail{" "}
                         {image ? (
                             "✅"

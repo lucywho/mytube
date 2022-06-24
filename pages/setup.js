@@ -39,10 +39,12 @@ export default function Setup() {
         <>
             {session.user.name ? (
                 <p className="text-pink-200 text-2xl font-bold p-5">
-                    Update your details
+                    update your details
                 </p>
             ) : (
-                <></>
+                <p className="text-pink-200 text-2xl font-bold p-5">
+                    please choose a name, username and avatar
+                </p>
             )}
             <form
                 className="mt-10 ml-20"
