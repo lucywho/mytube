@@ -34,7 +34,7 @@ export default function Subscriptions({ initialVideos }) {
     if (!videos)
         return (
             <p className="text-pink-200 text-2xl font-bold p-5">
-                You haven't subscribed to any videos yet
+                You haven&apos;t subscribed to any videos yet
             </p>
         )
 

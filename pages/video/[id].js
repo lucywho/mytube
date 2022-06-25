@@ -11,11 +11,6 @@ import Video from "components/Video"
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false })
 
 export default function SingleVideo({ video, videos }) {
-    if (!video)
-        return (
-            <p className="text-center p-5">Sorry. This video does not exist.</p>
-        )
-
     useEffect(() => {
         const incrementViews = async () => {
             await fetch("/api/view", {
@@ -30,6 +25,11 @@ export default function SingleVideo({ video, videos }) {
         }
         incrementViews()
     }, [])
+
+    if (!video)
+        return (
+            <p className="text-center p-5">Sorry. This video does not exist.</p>
+        )
 
     return (
         <>
