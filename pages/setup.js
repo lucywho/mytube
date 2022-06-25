@@ -66,7 +66,7 @@ export default function Setup() {
                     router.push("/")
                 }}
             >
-                <div className="mb-2">name</div>
+                <div className="mb-2 text-pink-200">name</div>
                 <input
                     type="text"
                     name="name"
@@ -75,7 +75,7 @@ export default function Setup() {
                     required
                 />
 
-                <div className="mb-2">username</div>
+                <div className="mb-2 text-pink-200">username</div>
                 <input
                     type="text"
                     name="username"
@@ -86,7 +86,11 @@ export default function Setup() {
 
                 <div>
                     <label>
-                        {!imageURL && <p className="mb-2">upload an avatar</p>}
+                        {!imageURL && (
+                            <p className="mb-2 text-pink-200">
+                                upload an avatar
+                            </p>
+                        )}
                         <img src={imageURL} className="w-20 h-20" />
                         <input
                             name="image"
