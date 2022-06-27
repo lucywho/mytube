@@ -25,3 +25,15 @@ Hosted on Vercel at https://mytube-xi.vercel.app/
 ![image](public/myTube-home.png)
 ![image](public/myTube-own.png)
 ![image](public/myTube-single.png)
+
+### Credits
+
+"Rocky Mountains": original video "Rocky Mountains Timelapse" by [mitchp](!https://www.videvo.net/video/rocky-mountains-timelapse/3908/) on www.videvo.net. Used under Creative Commons License.
+
+"Lions": orginal video "Two Lionesses Walking Together" by [`Stand Up for Nature`](!https://www.videvo.net/video/pair-of-lionesses-walking-together/463057/) on www.videvo.net. Used under Videvo Attribution License.
+
+"Waves in the Gambia": original video "Waves at Sunset" by [NatureClip](!https://www.videvo.net/video/waves-at-sunset-in-hd-slow-motion-cc-by-natureclip/2089/) on www.videvo.net. Used under Creative Commons License.
+
+Filler videos from [faker.js](!https://github.com/faker-js/faker)
+
+Filler thumbnails from [placeimg](!http://placeimg.com)
