@@ -31,7 +31,9 @@ export default function Subscriptions({ initialVideos }) {
         router.push("/setup")
     }
 
-    if (!videos)
+    console.log(videos)
+
+    if (videos.length === 0)
         return (
             <p className="text-pink-200 text-2xl font-bold p-5">
                 You haven&apos;t subscribed to any videos yet

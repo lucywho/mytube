@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import Link from "next/link"
@@ -12,6 +12,14 @@ export default function Setup() {
     const [username, setUserName] = useState("")
     const [image, setImage] = useState(null)
     const [imageURL, setImageURL] = useState(null)
+
+    useEffect(() => {
+        if (session.user.name) {
+            setName(session.user.name)
+            setUserName(session.user.username)
+            setImage(session.user.image)
+        }
+    })
 
     if (loading) {
         return (
@@ -70,6 +78,7 @@ export default function Setup() {
                 <input
                     type="text"
                     name="name"
+                    defaultValue={name}
                     onChange={(e) => setName(e.target.value)}
                     className="p-2 mb-5"
                     required
@@ -79,6 +88,7 @@ export default function Setup() {
                 <input
                     type="text"
                     name="username"
+                    defaultValue={username}
                     onChange={(e) => setUserName(e.target.value)}
                     className="p-2 mb-5"
                     required
@@ -97,7 +107,7 @@ export default function Setup() {
                             type="file"
                             accept="image/*"
                             className="hidden"
-                            required
+                            defaultValue={imageURL}
                             onChange={(event) => {
                                 if (
                                     event.target.files &&
