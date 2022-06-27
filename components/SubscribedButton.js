@@ -12,7 +12,7 @@ export default function SubscribedButton({ user, subscribed }) {
         <>
             {subscribed ? (
                 <button
-                    className={`bg-${subscribedButtonColor}-500 w-28 py-2 rounded-md`}
+                    className={`bg-${subscribedButtonColor}-500 w-28 px-3 py-2 rounded-md`}
                     onClick={async () => {
                         await fetch("/api/unsubscribe", {
                             body: JSON.stringify({
@@ -23,6 +23,7 @@ export default function SubscribedButton({ user, subscribed }) {
                             },
                             method: "POST",
                         })
+
                         router.reload(window.location.pathname)
                     }}
                     onMouseOver={() => {
@@ -38,7 +39,7 @@ export default function SubscribedButton({ user, subscribed }) {
                 </button>
             ) : (
                 <button
-                    className="bg-red-500 px-3 py-2 rounded-md"
+                    className=" bg-red-500 px-3 py-2  rounded-md"
                     onClick={async () => {
                         await fetch("/api/subscribe", {
                             body: JSON.stringify({
@@ -49,6 +50,7 @@ export default function SubscribedButton({ user, subscribed }) {
                             },
                             method: "POST",
                         })
+
                         router.reload(window.location.pathname)
                     }}
                 >
