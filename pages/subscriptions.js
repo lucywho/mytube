@@ -15,7 +15,7 @@ export default function Subscriptions({ initialVideos }) {
     const router = useRouter()
 
     const [videos, setVideos] = useState(initialVideos)
-    const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
+    const [reachedEnd, setReachedEnd] = useState(initialVideos.length <= amount)
 
     const loading = status === "loading"
 

@@ -23,8 +23,6 @@ if (process.env.NODE_ENV === "development") {
     }
 }
 
-console.log(data)
-
 export default NextAuth({
     providers: [EmailProvider(data)],
 
