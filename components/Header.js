@@ -9,7 +9,7 @@ export default function Header({ subscriptions }) {
     if (loading) {
         return (
             <header className="flex px-5 py-4 md:py-8 border-b-2 border-teal-400">
-                <div className="text-4xl w-full">
+                <div className=" text-4xl md:text-5xl w-full">
                     <p>
                         🙈 <span className="text-teal-400">my</span>
                         <span className="font-extrabold">
@@ -33,8 +33,8 @@ export default function Header({ subscriptions }) {
     return (
         <header className="flex flex-col md:flex-row px-5 py-4 md:py-8 border-b-2 border-teal-400">
             <div className="flex flex-row justify-between">
-                <div className="text-4xl w-full flex flex-col justify-center">
-                    <p className="text-4xl w-full flex flex-row">
+                <div className=" w-full flex flex-col justify-center">
+                    <p className=" text-4xl md:text-5xl w-full flex flex-row">
                         🙈 <span className="text-teal-400 ml-2">my</span>
                         <span className="font-extrabold">
                             <span className="text-purple-800">T</span>
@@ -46,7 +46,7 @@ export default function Header({ subscriptions }) {
                 </div>
                 <div className="grow ml-10 -mt-1"></div>
                 {session && (
-                    <div className="h-full w-full flex flex-row content-center justify-center cursor-pointer">
+                    <div className="h-full w-full flex flex-row content-center justify-end md:justify-center cursor-pointer">
                         <Link href={`/channel/${session.user.username}`}>
                             <div className="h-full flex flex-row">
                                 <div className="flex flex-col justify-center h-auto min-w-fit ">
