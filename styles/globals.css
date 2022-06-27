@@ -50,6 +50,14 @@ input:focus {
     background: #26a69a;
 }
 
+@media (max-width: 768px) {
+    .button {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        margin: 3px 5px;
+    }
+}
+
 /* purple-900  #581c87
 pink-200 -  #fbcfe8
 teal-400 #26a69a
