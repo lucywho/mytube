@@ -19,7 +19,7 @@ export default function Channel({
     const { data: session, status } = useSession()
     const loading = status === "loading"
     const [videos, setVideos] = useState(initialVideos)
-    const [reachedEnd, setReachedEnd] = useState(initialVideos.length < amount)
+    const [reachedEnd, setReachedEnd] = useState(initialVideos.length <= amount)
 
     if (loading) {
         return (
@@ -54,11 +54,6 @@ export default function Channel({
                             />
                         )}
 
-                        {/* {session && (
-                <Link href={"/setup"}>
-                    <button className="button">update</button>
-                </Link>
-            )} */}
                         <div className="flex flex-col justify-center  pl-2 md:pl-5">
                             {session && user.id === session.user.id ? (
                                 <>
