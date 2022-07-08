@@ -29,6 +29,7 @@ export default function Subscriptions({ initialVideos }) {
 
     if (session && !session.user.name) {
         router.push("/setup")
+        return null
     }
 
     if (videos.length === 0)

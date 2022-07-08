@@ -25,6 +25,7 @@ export default function Home({ initialVideos }) {
 
     if (session && !session.user.name) {
         router.push("/setup")
+        return null
     }
 
     if (!videos)
