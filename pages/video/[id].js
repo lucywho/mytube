@@ -1,10 +1,11 @@
+import Link from "next/link"
 import { useEffect } from "react"
 import dynamic from "next/dynamic"
-import Link from "next/link"
 
 import prisma from "lib/prisma"
-import { getVideo, getVideos } from "lib/data.js"
+import { amount } from "lib/config"
 import timeago from "lib/timeago"
+import { getVideo, getVideos } from "lib/data.js"
 
 import Video from "components/Video"
 
@@ -97,7 +98,7 @@ export async function getServerSideProps(context) {
     let video = await getVideo(context.params.id, prisma)
     video = JSON.parse(JSON.stringify(video))
 
-    let videos = await getVideos({ take: 3 }, prisma)
+    let videos = await getVideos({ take: amount }, prisma)
     videos = JSON.parse(JSON.stringify(videos))
 
     return {
